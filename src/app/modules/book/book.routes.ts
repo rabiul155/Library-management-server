@@ -1,16 +1,9 @@
 import express from "express";
+import { bookController } from "./book.controller";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  console.log(req);
-});
-
-router.post("/", (req, res) => {
-  console.log(req);
-});
-router.patch("/", (req, res) => {
-  console.log(req);
-});
+router.get("/", bookController.getBooks);
+router.post("/", bookController.createBook);
 
 export const bookRouter = router;

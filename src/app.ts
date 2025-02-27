@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello from the server" });
 });
 
-app.use("/books", bookRouter);
-app.use("/members", memberRouter);
+app.use("/api/books", bookRouter);
+app.use("/api/members", memberRouter);
 
 export default app;
