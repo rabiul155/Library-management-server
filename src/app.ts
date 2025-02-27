@@ -6,6 +6,7 @@ const app = express();
 
 // Import routes
 import { bookRouter } from "./app/modules/book/book.routes";
+import { memberRouter } from "./app/modules/member/member.route";
 
 // middleware
 app.use(cors());
@@ -18,5 +19,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/books", bookRouter);
+app.use("/members", memberRouter);
 
 export default app;
