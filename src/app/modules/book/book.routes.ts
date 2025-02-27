@@ -6,4 +6,8 @@ router.get("/", (req, res) => {
   console.log(req);
 });
 
+router.post("/", (req, res) => {
+  console.log(req);
+});
+
 export const bookRouter = router;
