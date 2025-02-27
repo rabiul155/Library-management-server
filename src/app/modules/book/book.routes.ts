@@ -9,5 +9,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   console.log(req);
 });
+router.patch("/", (req, res) => {
+  console.log(req);
+});
 
 export const bookRouter = router;
