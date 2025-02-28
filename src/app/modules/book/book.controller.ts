@@ -29,8 +29,28 @@ const getBook: RequestHandler = catchAsync(async (req, res, next) => {
   });
 });
 
+const updateBook: RequestHandler = catchAsync(async (req, res, next) => {
+  const result = await bookServices.updateBook(req.params.bookId, req.body);
+  res.status(200).json({
+    success: true,
+    message: "Book updated successfully",
+    data: result,
+  });
+});
+
+const deleteBook: RequestHandler = catchAsync(async (req, res, next) => {
+  const result = await bookServices.deleteBook(req.params.bookId);
+  res.status(200).json({
+    success: true,
+    message: "Book deleted successfully",
+    data: result,
+  });
+});
+
 export const bookController = {
   createBook,
   getBooks,
   getBook,
+  updateBook,
+  deleteBook,
 };

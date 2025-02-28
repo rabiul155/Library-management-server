@@ -7,6 +7,8 @@ const app = express();
 // Import routes
 import { bookRouter } from "./app/modules/book/book.routes";
 import { memberRouter } from "./app/modules/member/member.route";
+import globalErrorHandler from "./app/middleware/globalErrorHandler";
+import notFoundRoute from "./app/middleware/notFoundRoute";
 
 // middleware
 app.use(cors());
@@ -20,5 +22,11 @@ app.get("/", (req, res) => {
 
 app.use("/api/books", bookRouter);
 app.use("/api/members", memberRouter);
+
+// not found route
+app.use("*", notFoundRoute);
+
+//global error handler
+app.use(globalErrorHandler);
 
 export default app;
