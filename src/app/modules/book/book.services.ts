@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { BookType } from "./book.interface";
-import { isArrayBufferView } from "node:util/types";
 import AppError from "../../utils/AppError";
 
 const prisma = new PrismaClient();

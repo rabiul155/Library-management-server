@@ -11,7 +11,7 @@ type ErrorType = {
 const sendErrorDev = (err: ErrorType, res: Response) => {
   res.status(err.statusCode).json({
     status: err.status,
-    message: err.message,
+    message: err.message || "Internal server error",
     error: err,
     stack: err.stack,
   });
@@ -20,14 +20,14 @@ const sendErrorDev = (err: ErrorType, res: Response) => {
 const sendErrorProd = (err: ErrorType, res: Response) => {
   res.status(err.statusCode).json({
     status: err.status,
-    message: err.message,
+    message: err.message || "Internal server error",
   });
 };
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
-  err.message = err.message || "Internal server error";
+
   if (process.env.NODE_ENV === "development") {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
