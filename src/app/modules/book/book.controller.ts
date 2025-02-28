@@ -20,7 +20,17 @@ const getBooks: RequestHandler = catchAsync(async (req, res, next) => {
   });
 });
 
+const getBook: RequestHandler = catchAsync(async (req, res, next) => {
+  const result = await bookServices.getBookDB(req.params.bookId);
+  res.status(200).json({
+    success: true,
+    message: "Book find successfully",
+    data: result,
+  });
+});
+
 export const bookController = {
   createBook,
   getBooks,
+  getBook,
 };

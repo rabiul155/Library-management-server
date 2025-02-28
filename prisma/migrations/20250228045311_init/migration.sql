@@ -38,6 +38,12 @@ CREATE TABLE "borrowRecords" (
     CONSTRAINT "borrowRecords_pkey" PRIMARY KEY ("borrowId")
 );
 
+-- CreateIndex
+CREATE UNIQUE INDEX "books_title_key" ON "books"("title");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "members_email_key" ON "members"("email");
+
 -- AddForeignKey
 ALTER TABLE "borrowRecords" ADD CONSTRAINT "borrowRecords_bookId_fkey" FOREIGN KEY ("bookId") REFERENCES "books"("bookId") ON DELETE RESTRICT ON UPDATE CASCADE;
 

@@ -17,7 +17,7 @@ datasource db {
 model Book {
   bookId  String   @id @default(uuid())
   
-  title     String
+  title     String @unique
   genre   String
   publishedYear Int
   totalCopies    Int   
@@ -34,7 +34,7 @@ model Member {
   memberId  String  @id @default(uuid())
   
   name  String
-  email  String
+  email  String @unique
   phone String
   membershipDate DateTime
  
