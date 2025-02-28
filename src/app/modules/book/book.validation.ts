@@ -1,6 +1,6 @@
 import z from "zod";
 
-const bookSchema = z.object({
+const bookValidationSchema = z.object({
   title: z.string().min(1, "Title is required"),
   genre: z.string().min(1, "Genre is required"),
   publishedYear: z
@@ -15,4 +15,4 @@ const bookSchema = z.object({
     .min(0, "Available copies must be at least 0"),
 });
 
-export default bookSchema;
+export default bookValidationSchema;
