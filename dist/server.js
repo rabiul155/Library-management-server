@@ -21,6 +21,8 @@ function server() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = app_1.default.listen(process.env.PORT, () => {
             console.log("Library management server running");
+            console.log(process.env.NODE_ENV);
+            console.log(process.env.PORT);
         });
     });
 }

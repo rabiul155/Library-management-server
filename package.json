@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./dist/server.js",
-    "prod": "NODE_ENV=production node ./dist/server.js",
-    "start:dev": "NODE_ENV=production node ./dist/server.js",
+    "start:dev": "node ./dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
